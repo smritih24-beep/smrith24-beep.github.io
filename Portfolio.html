@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <style>
+        body{
+            background-color: black;
+            color: #f0ffff;
+            margin-left: 40px;
+            font-size: 20px;
+      }
+      .ic{
+        width:340px;
+        height: 350px;
+        margin-left: 20px;
+        margin-top: 80px;
+        border-radius: 50%;
+        border: 7px double palevioletred;
+        box-shadow:
+                    0 0 50px rgba(244, 79, 178, 0.8),
+                    0 0 57px rgba(104, 35, 70, 0.6),
+                    0 0 80px rgba(220, 63, 160, 0.4);
+
+      }
+      .main{
+        display: flex;
+      
+      }
+      .main > div{
+        width: 40%;
+      }
+      
+    
+     .a{
+        width: 350px;
+        border: 2px solid rgb(208, 31, 143);
+        padding: 25px;
+        text-align: center;
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        margin: 10px;
+        background-color: black;
+        color: aliceblue;
+        font-size: 25px;
+        cursor: pointer;
+     }
+     .a:hover{
+        background-color: rgb(219, 19, 159);
+     }
+     .overlay{
+        padding-right: 20px;
+        margin-right: 40px;
+        border: 2px solid rgb(208, 31, 143);
+        height: 474px;
+        padding-left:20px;
+        display: none;
+        z-index: 10;
+        background-color: black;
+       }
+       .overlay button{
+        color: blue;
+        margin-bottom: 15px;
+       }
+       #overlay1{
+        text-align: left;
+       }
+       #overlay4{
+        height: 210px;
+        margin-top: 120px;
+       }
+      
+    </style>
+</head>
+<body>
+    <div class="f">
+    <h1 class="i">DIVYA SOOLAGILLU</h1>
+    <h2 class="i">Python Full Stack Developer</h2>
+    <p>I am a 2025 passed-out ECE graduate at IIIT-RGUKT and trained in Python Full-Stack development, with skills in Python, Django, SQL, HTML, CSS, and JavaScript. I am eager to apply my knowledge in real-world projects and grow as a developer.</p>
+    </div>
+    <div class="main">
+        <div class="left">
+           <img class="ic" src="https://i.postimg.cc/TPK0FsN2/Divyaimg.jpg" alt="Divyaimg" class="is">
+        </div>
+           <div class="right">
+          <button onclick="toggleEducation()" class="a">Education</button>
+          <button onclick="toggleSkills()" class="a">Skills</button>
+          <button onclick="window.location.href='projects.html'" class="a">Projects</button>
+          <button onclick="toggleCertification()" class="a">Certifications</button>
+          <button on class="a" onclick="window.location.href='https://drive.google.com/file/d/1HEkhdehFRj_l0u8TQ1uPlIhXYsPkgJ3M/view?usp=drivesdk'">Resume Download</a></button>
+           </div>
+        <div id="overlay2" class="overlay">
+            <span class="close" onclick="closeOverlay"></span>
+           
+          <ul ><h3 style="text-decoration: underline;">Technical skills</h3>
+            <li>Programming/Scripting Language:Python</li>
+            <li>Scripting Language:JavaScript</li>
+            <li>Markup Language: HTML</li>
+            <li>Style Sheet Language: CSS</li>
+            <li>Web Framework: Django</li>
+            <li>Query Language: SQL</li>
+          </ul>
+          <ul><h3 style="text-decoration: underline;" >Soft Skills</h3>
+               <li>Teamwork & Independent work</li>
+               <li>Problem Solving Ability</li>
+               <li>Time Management</li>
+               <li>Quick Learner</li>
+               <li>Self Motivated</li>
+               <li>Self Motivated</li>
+            </ul>
+        </div>
+       <div  id="overlay1" class="overlay">
+            <span class="close" onclick="closeOverlay"></span>
+            <ul>
+                <h3 style="text-decoration: underline;">B.Tech - Electronics and Communication Engineering</h3>
+                 <li>IIIT - RGUKT,Andhra Pradesh</li>
+                   <li>2021 - 2025</li>
+                <li>CGPA - 7.18/10.0</li>
+            </ul>
+             <ul>
+                <h3 style="text-decoration: underline">PUC - Pre University Course [MPC]</h3>
+                <li>IIIT - RGUKT,Andhra Pradesh</li>
+                <li>2019 - 2021</li>
+                <li>CGPA - 8.43/10.0</li>
+            </ul>
+             <ul>
+                <h3 style="text-decoration: underline;">Secondary Education</h3>
+                <li>ZP High School,Pullur,Andhra Pradesh</li>
+                <li>2019 - 2021</li>
+                <li>CGPA - 10.0/10.0</li>
+            </ul>
+           
+        </div>
+        <div id="overlay4" class="overlay">
+            <span class="close" onclick="closeOverlay"></span>
+            <ul><h3 style="text-decoration: underline;">Certifications</h3>
+                <li> Vidhya Puraskar  2019</li>
+                <li> Internship On 3C/6S In Production Process    -2024</li>
+                <li>Web Development Course -Online     -2023</li>
+                <li>Python Full Stack Development-Offline   -2025</li>
+            </ul>
+    
+        </div> 
+        </div>
+    </div>
+</body>
+<script>
+function closeAllOverlays() {
+    const overlays = document.querySelectorAll('.overlay');
+    overlays.forEach(overlay => {
+        overlay.style.display = 'none';
+    });
+}
+function toggleSkills() {
+    const overlay = document.getElementById("overlay2");
+
+    const isVisible = window.getComputedStyle(overlay).display !== "none";
+
+    closeAllOverlays(); // 👈 CLOSE everything first
+
+    if (!isVisible) {
+        overlay.style.display = "block"; // OPEN only clicked one
+    }
+}
+
+
+function toggleEducation() {
+    const overlay = document.getElementById("overlay1");
+
+    const isVisible = window.getComputedStyle(overlay).display !== "none";
+
+   closeAllOverlays(); // 👈 CLOSE everything first
+
+    if (!isVisible) {
+        overlay.style.display = "block"; // OPEN only clicked one
+    }
+}
+
+
+function toggleCertification() {
+    const overlay = document.getElementById("overlay4");
+
+    const isVisible = window.getComputedStyle(overlay).display !== "none";
+     closeAllOverlays(); // 👈 CLOSE everything first
+
+    if (!isVisible) {
+        overlay.style.display = "block"; // OPEN only clicked one
+    }
+}
+
+   
+
+
+</script>
+</html>
